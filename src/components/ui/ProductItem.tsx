@@ -37,7 +37,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
           {product.discountPercentage > 0 ? (
             <>
               <p className="font-semibold">
-                R$ {product.totalPrice.toFixed(2)}
+                R$ {product.totalPrice.toFixed(2).toLocaleString()}
               </p>
               <p className="text-xs line-through opacity-75">
                 R$ {Number(product.basePrice).toFixed(2)}
