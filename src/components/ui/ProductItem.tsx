@@ -44,9 +44,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
               </p>
             </>
           ) : (
-            <p className="text-xs line-through opacity-75">
-              R$ {Number(product.basePrice)}
-            </p>
+            <p className="font-semibold">R$ {Number(product.basePrice)}</p>
           )}
         </div>
       </div>
