@@ -18,6 +18,8 @@ const CategoryProductPage = async ({
     },
   });
 
+  if (!category) return null;
+
   return (
     <div className="flex flex-col gap-8 p-5">
       <Badge
