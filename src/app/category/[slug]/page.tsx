@@ -3,14 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { CATEGORY_ICON } from "@/constants/categoryIcon";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { prismaClient } from "@/lib/prisma";
-import { ShapesIcon } from "lucide-react";
 import React from "react";
 
-const CategoryProductPage = async ({
-  params,
-}: {
+interface CategoryProductPageProps {
   params: { slug: string };
-}) => {
+}
+
+const CategoryProductPage = async ({ params }: CategoryProductPageProps) => {
   const category = await prismaClient.category.findFirst({
     where: { slug: params.slug },
     include: {
