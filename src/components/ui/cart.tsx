@@ -5,6 +5,7 @@ import { CartContext } from "@/provider/cart";
 import { CartItem } from "./cartItem";
 import { Separator } from "./separator";
 import { ScrollArea } from "./scroll-area";
+import { Button } from "./button";
 
 export const Cart = () => {
   const { products, subTotal, total, totalDiscount } = useContext(CartContext);
@@ -58,6 +59,8 @@ export const Cart = () => {
           <p>Total</p>
           <p>R$ {total.toFixed(2)}</p>
         </div>
+
+        <Button className="mt-7 font-bold uppercase">Finalizar Compra</Button>
       </div>
     </div>
   );
