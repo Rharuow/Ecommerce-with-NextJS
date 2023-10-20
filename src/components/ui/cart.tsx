@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Badge } from "./badge";
-import { ShapesIcon } from "lucide-react";
+import { ShoppingCartIcon } from "lucide-react";
 import { CartContext } from "@/provider/cart";
 import { CartItem } from "./cartItem";
 
@@ -13,14 +13,18 @@ export const Cart = () => {
         className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"
         variant={"outline"}
       >
-        <ShapesIcon size={16} />
-        Catalogo
+        <ShoppingCartIcon size={16} />
+        Carrinho
       </Badge>
 
       <div className="flex flex-col gap-5">
-        {products.map((product) => (
-          <CartItem key={product.id} product={product} />
-        ))}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <CartItem key={product.id} product={product} />
+          ))
+        ) : (
+          <p className="text-center font-semibold">Carrinho vazio</p>
+        )}
       </div>
     </div>
   );
