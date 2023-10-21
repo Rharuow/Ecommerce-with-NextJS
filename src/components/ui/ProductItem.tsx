@@ -14,6 +14,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
       <div className="flex w-full flex-col gap-4">
         <div className="relative flex h-[170px] w-full items-center justify-center rounded-lg bg-accent">
           <Image
+            priority
             src={product.imageUrls[0]}
             alt={`product image ${product.name}}`}
             height={0}

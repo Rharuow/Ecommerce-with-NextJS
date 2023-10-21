@@ -7,7 +7,7 @@ import { ArrowLeftIcon, ArrowRightIcon, TruckIcon } from "lucide-react";
 import React, { useContext, useState } from "react";
 
 interface ProductInfoProps {
-  product: ProductWithTotalPrice;
+  product: Merge<ProductWithTotalPrice, { basePrice: number }>;
 }
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {

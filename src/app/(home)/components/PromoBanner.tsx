@@ -8,6 +8,7 @@ export const PromoBanner = ({ src, alt, ...props }: ImageProps) => {
       alt={alt}
       height={0}
       width={0}
+      priority
       sizes="100vw"
       className="h-auto w-full px-5"
       {...props}
