@@ -44,42 +44,44 @@ export const Cart = () => {
         </div>
       </ScrollArea>
 
-      <div className="flex flex-col gap-3">
-        <Separator />
+      {products.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <Separator />
 
-        <div className="flex items-center justify-between text-xs">
-          <p>SubTotal</p>
-          <p>R$ {subTotal.toFixed(2)}</p>
+          <div className="flex items-center justify-between text-xs">
+            <p>SubTotal</p>
+            <p>R$ {subTotal.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Entrega</p>
+            <p>GRÁTIS</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Descontos</p>
+            <p>R$ {totalDiscount.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Total</p>
+            <p>R$ {total.toFixed(2)}</p>
+          </div>
+
+          <Button
+            className="mt-7 font-bold uppercase"
+            onClick={handleFinishPurshaseClick}
+          >
+            Finalizar Compra
+          </Button>
         </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Entrega</p>
-          <p>GRÁTIS</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Descontos</p>
-          <p>R$ {totalDiscount.toFixed(2)}</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Total</p>
-          <p>R$ {total.toFixed(2)}</p>
-        </div>
-
-        <Button
-          className="mt-7 font-bold uppercase"
-          onClick={handleFinishPurshaseClick}
-        >
-          Finalizar Compra
-        </Button>
-      </div>
+      )}
     </div>
   );
 };
