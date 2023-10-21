@@ -1,6 +1,12 @@
 "use client";
 import { ProductWithTotalPrice } from "@/helpers/product";
-import React, { ReactNode, createContext, useMemo, useState } from "react";
+import React, {
+  ReactNode,
+  createContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 export interface CartProduct
   extends Merge<ProductWithTotalPrice, { basePrice: number }> {
@@ -36,7 +42,9 @@ export const CartContext = createContext<ICartContext>({
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<Array<CartProduct>>([]);
+  const [products, setProducts] = useState<Array<CartProduct>>(
+    JSON.parse(localStorage.getItem("hary-cart-ecommerce") || "[]"),
+  );
 
   const addProductToCart = (product: CartProduct) => {
     const productIsAlreadyOnCart = products.some(
@@ -101,6 +109,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }, [products]);
 
   const totalDiscount = total - subTotal;
+
+  useEffect(() => {
+    localStorage.setItem("hary-cart-ecommerce", JSON.stringify(products));
+  }, [products]);
 
   return (
     <CartContext.Provider
