@@ -2,7 +2,8 @@
 import { ProductWithTotalPrice } from "@/helpers/product";
 import React, { ReactNode, createContext, useMemo, useState } from "react";
 
-export interface CartProduct extends ProductWithTotalPrice {
+export interface CartProduct
+  extends Merge<ProductWithTotalPrice, { basePrice: number }> {
   quantity: number;
 }
 
